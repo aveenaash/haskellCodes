@@ -14,21 +14,21 @@ myTake n (x:xs)=x : myTake (n-1) xs
 myDropWhile ::(a->Bool)->[a]->[a]
 myDropWhile _ []=[]
 myDropWhile f (x:xs)| f x= myDropWhile f xs
-                    | otherwise= x: myDropWhile f xs
+                    | otherwise= x: xs
 
-myDropWhileHOF ::(a->Bool)->[a]->[a]
-myDropWhileHOF _ []=[]
-myDropWhileHOF f xs= filter (not.f) xs
+-- myDropWhileHOF ::(a->Bool)->[a]->[a]
+-- myDropWhileHOF _ []=[]
+-- myDropWhileHOF f xs= filter (not.f) xs
 
 -- Implementation of takeWhile
 myTakeWhile :: (a->Bool)->[a]->[a]
 myTakeWhile _ []=[]
 myTakeWhile f (x:xs)| f x = x: myTakeWhile f xs
-                    | otherwise= myTakeWhile f xs
+                        | otherwise= myTakeWhile f []
 
-myTakeWhileHOF :: (a->Bool)->[a]->[a]
-myTakeWhileHOF _ []=[]
-myTakeWhileHOF f xs=filter f xs
+-- myTakeWhileHOF :: (a->Bool)->[a]->[a]
+-- myTakeWhileHOF _ []=[]
+-- myTakeWhileHOF f xs=filter f xs
 
 -- Implementation of length
 myLength :: [a]->Int
