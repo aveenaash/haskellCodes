@@ -13,6 +13,18 @@ average []=0
 average (xs)= fromIntegral(lsum(xs)) / fromIntegral(length(xs))
 
 splitList xs=[filter even xs, filter odd xs]
+
+partList xs p = [l1,l2]
+                    where l1=[x|x<-xs,p x]
+                          l2=[x|x<-xs,not(p x)]
+
+circleArea r = let pi=3.14159
+                  in r*r*pi
+
+fac n = fac' n 1
+        where fac' 1 a = a
+              fac' n a = fac' (n-1) (n*a)
+
 main=do print numSquares
         print triples
         print tripleCount
